@@ -1,0 +1,35 @@
+{
+  "name": "litdoc",
+  "version": "1.0.0",
+  "description": "A simple Markdown-based 3-column documentation builder.",
+  "main": "index.js",
+  "scripts": {
+    "docs": "node bin/docs.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zapier/litdoc.git"
+  },
+  "keywords": [
+    "markdown",
+    "documentation",
+    "bootstrap",
+    "responsive"
+  ],
+  "bin": {
+    "litdoc": "litdoc.js"
+  },
+  "author": "Bryan Helmig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zapier/litdoc/issues"
+  },
+  "homepage": "https://github.com/zapier/litdoc#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "highlight.js": "^9.5.0",
+    "markdown-toc": "^0.12.15",
+    "marked": "^0.3.6"
+  }
+}
