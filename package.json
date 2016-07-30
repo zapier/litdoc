@@ -18,7 +18,7 @@
     "responsive"
   ],
   "bin": {
-    "litdoc": "litdoc.js"
+    "litdoc": "bin/litdoc.js"
   },
   "author": "Bryan Helmig",
   "license": "ISC",
