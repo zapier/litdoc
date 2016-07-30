@@ -82,6 +82,8 @@ const renderMarkdownString = (markdownString) => {
 
 
 const generate = (options) => {
+  const title = options.title || 'Documentation';
+
   const cssPath = options.cssPath || path.join(__dirname, 'base.css');
   const css = options.css || fs.readFileSync(cssPath).toString();
 
@@ -99,6 +101,7 @@ const generate = (options) => {
 
   const content = renderMarkdownString(markdown);
   const context = {
+    title: title,
     css: css,
     tableOfContent: tableOfContent,
     content: content
