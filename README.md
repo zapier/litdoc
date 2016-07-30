@@ -1,14 +1,15 @@
 ## Introduction
 
-`litdoc` is a simple 3 column documentation generator. The most common use case is a single `README.md`. This file is a demo:
+`litdoc` is a simple 3 column documentation generator. The most common use case is a single `README.md`. This file itself is a demo:
 
-* [View orignal README.md.](https://github.com/zapier/litdoc)
-* [View generated documentation.](https://zapier.github.io/litdoc/)
+* [View orignal Markdown README.md.](https://github.com/zapier/litdoc)
+* [View generated HTML documentation.](https://zapier.github.io/litdoc/)
 
 
 ## Installation & Usage
 
 There are two ways to use `litdoc`, locally and globally.
+
 
 ### Local Installation & Usage
 
@@ -24,12 +25,12 @@ You can use it as a CLI tool.
 $ ./node_modules/.bin/litdoc input.md output.html
 ```
 
-Or you can use it directly in you application.
+Or you can use it directly in your application.
 
 ```js
-const generator = require('litdoc');
+const litdoc = require('litdoc');
 
-const documentationHtml = generator({
+const documentationHtml = litdoc({
   markdown: '## Hello!\n\nThis is a sample doc.\n\n' +
             '```js\nconst hello = "world"\n```'
 });
@@ -55,7 +56,7 @@ $ litdoc input.md output.html
 
 Below is the reference for the only function `litdoc` exposes.
 
-### generate()
+### litdoc()
 
 * `title` - default `"Documentation"`
 * `css` - default `undefined`
@@ -69,10 +70,10 @@ Below is the reference for the only function `litdoc` exposes.
 > You _must_ provide either `markdown` or `markdownPath`.
 
 ```js
-const generator = require('litdoc');
+const litdoc = require('litdoc');
 
-generator({
-  title: "Documentation",
+litdoc({
+  title: 'Documentation',
   css: undefined,
   cssPath: 'base.css', // litdoc provided
   template: undefined,

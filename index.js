@@ -81,7 +81,7 @@ const renderMarkdownString = (markdownString) => {
 };
 
 
-const generate = (options) => {
+const litdoc = (options) => {
   const title = options.title || 'Documentation';
 
   const cssPath = options.cssPath || path.join(__dirname, 'base.css');
@@ -115,4 +115,4 @@ const generate = (options) => {
   }
 };
 
-module.exports = generate;
+module.exports = litdoc;

@@ -205,7 +205,7 @@ blockquote {
 </ul>
 </li>
 <li><a href="#reference">Reference</a><ul>
-<li><a href="#generate">generate()</a></li>
+<li><a href="#litdoc">litdoc()</a></li>
 </ul>
 </li>
 </ul>
@@ -227,9 +227,9 @@ blockquote {
   </div>  <div class="row">
     <div class="row-height">
       <div class="col-md-6 col-sm-12 col-height  docs-primary">
-        <p><code>litdoc</code> is a simple 3 column documentation generator. The most common use case is a single <code>README.md</code>. This file is a demo:</p><ul>
-<li><a href="https://github.com/zapier/litdoc">View orignal README.md.</a></li>
-<li><a href="https://zapier.github.io/litdoc/">View generated documentation.</a></li>
+        <p><code>litdoc</code> is a simple 3 column documentation generator. The most common use case is a single <code>README.md</code>. This file itself is a demo:</p><ul>
+<li><a href="https://github.com/zapier/litdoc">View orignal Markdown README.md.</a></li>
+<li><a href="https://zapier.github.io/litdoc/">View generated HTML documentation.</a></li>
 </ul>
       </div>
       <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
@@ -286,12 +286,12 @@ blockquote {
   </div>  <div class="row">
     <div class="row-height">
       <div class="col-md-6 col-sm-12 col-height  docs-primary">
-        <p>Or you can use it directly in you application.</p>
+        <p>Or you can use it directly in your application.</p>
       </div>
       <div class="col-md-6 col-sm-12 col-height  docs-code">
-        <pre><code class="lang-js"><span class="hljs-keyword">const</span> generator = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
+        <pre><code class="lang-js"><span class="hljs-keyword">const</span> litdoc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
 
-<span class="hljs-keyword">const</span> documentationHtml = generator({
+<span class="hljs-keyword">const</span> documentationHtml = litdoc({
   markdown: <span class="hljs-string">&apos;## Hello!\n\nThis is a sample doc.\n\n&apos;</span> +
             <span class="hljs-string">&apos;```js\nconst hello = &quot;world&quot;\n```&apos;</span>
 });
@@ -348,7 +348,7 @@ blockquote {
   </div>  <div class="row">
     <div class="row-height">
       <div class="col-md-6 col-sm-12 col-height  docs-primary">
-        <h3 id="generate-">generate()</h3>
+        <h3 id="litdoc-">litdoc()</h3>
       </div>
       <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
         
@@ -371,10 +371,10 @@ blockquote {
 </blockquote>
       </div>
       <div class="col-md-6 col-sm-12 col-height  docs-code">
-        <pre><code class="lang-js"><span class="hljs-keyword">const</span> generator = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
+        <pre><code class="lang-js"><span class="hljs-keyword">const</span> litdoc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
 
-generator({
-  title: <span class="hljs-string">&quot;Documentation&quot;</span>,
+litdoc({
+  title: <span class="hljs-string">&apos;Documentation&apos;</span>,
   css: <span class="hljs-literal">undefined</span>,
   cssPath: <span class="hljs-string">&apos;base.css&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
   template: <span class="hljs-literal">undefined</span>,
