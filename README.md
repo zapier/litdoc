@@ -72,6 +72,7 @@ Below is the reference for the only function `litdoc` exposes.
 const generator = require('litdoc');
 
 generator({
+  title: "Documentation",
   css: undefined,
   cssPath: 'base.css', // litdoc provided
   template: undefined,
