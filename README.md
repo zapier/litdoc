@@ -2,8 +2,8 @@
 
 `litdoc` is a simple 3 column documentation generator. The most common use case is a single `README.md`. This file is a demo:
 
-* [View orignal README.md.](#todo)
-* [View generated documentation.](#todo)
+* [View orignal README.md.](https://github.com/zapier/litdoc)
+* [View generated documentation.](https://zapier.github.io/litdoc/)
 
 
 ## Installation & Usage
