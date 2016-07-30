@@ -1,43 +1,44 @@
 'use strict';
 
-const fs = require('fs');
-const path = require('path');
+var fs = require('fs');
+var path = require('path');
 
-const _ = require('lodash');
+var _ = require('lodash');
 
-const marked = require('marked');
-const toc = require('markdown-toc');
-const cheerio = require('cheerio');
-const hljs = require('highlight.js');
+var marked = require('marked');
+var toc = require('markdown-toc');
+var cheerio = require('cheerio');
+var hljs = require('highlight.js');
 
-const rowTemplate = _.template(fs.readFileSync(path.join(__dirname, 'template-row.html')).toString());
-const row = (left, right) => rowTemplate({left: left || '', right: right || ''});
+var rowTemplate = _.template(fs.readFileSync(path.join(__dirname, 'template-row.html')).toString());
+var row = function row(left, right) {
+  return rowTemplate({ left: left || '', right: right || '' });
+};
 
-const renderMarkdownString = (markdownString) => {
-  const intermediaryOutput = marked(markdownString, {
-    highlight: (code, lang) => {
-      if (!lang || lang === 'plain') { return code; }
+var renderMarkdownString = function renderMarkdownString(markdownString) {
+  var intermediaryOutput = marked(markdownString, {
+    highlight: function highlight(code, lang) {
+      if (!lang || lang === 'plain') {
+        return code;
+      }
       return hljs.highlight(lang, code).value;
     }
   });
 
-  const $ = cheerio.load(`<div id="root">${intermediaryOutput}</div>`);
-  const blocks = [
-    'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol',
-    'blockquote', 'table', 'hr', 'br', 'pre'
-  ];
-  const collectLeft = ['p', 'blockquote', 'ul', 'ol'];
-  const flushRight = ['pre'];
+  var $ = cheerio.load('<div id="root">' + intermediaryOutput + '</div>');
+  var blocks = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'blockquote', 'table', 'hr', 'br', 'pre'];
+  var collectLeft = ['p', 'blockquote', 'ul', 'ol'];
+  var flushRight = ['pre'];
 
-  let stack = [];
-  let finalOutput = '';
+  var stack = [];
+  var finalOutput = '';
   // walk all the "root" block level elements, throw anything that can
   // be bunched into the left side of code onto the stack - then flush
   // periodically when we run into code.
-  $(`#root > ${blocks.join(',')}`).each((i, el) => {
-    const collect = collectLeft.indexOf(el.name) !== -1;
-    const flush = flushRight.indexOf(el.name) !== -1;
-    let inner = $(el).clone().wrap('<div>').parent().html();
+  $('#root > ' + blocks.join(',')).each(function (i, el) {
+    var collect = collectLeft.indexOf(el.name) !== -1;
+    var flush = flushRight.indexOf(el.name) !== -1;
+    var inner = $(el).clone().wrap('<div>').parent().html();
 
     if (collect) {
       stack.push(inner);
@@ -57,7 +58,6 @@ const renderMarkdownString = (markdownString) => {
     if (!collect) {
       stack = [];
     }
-
   });
 
   if (stack.length) {
@@ -67,34 +67,33 @@ const renderMarkdownString = (markdownString) => {
   return finalOutput;
 };
 
+var litdoc = function litdoc(options) {
+  var title = options.title || 'Documentation';
 
-const litdoc = (options) => {
-  const title = options.title || 'Documentation';
+  var cssPath = options.cssPath || path.join(__dirname, 'base.css');
+  var css = options.css || fs.readFileSync(cssPath).toString();
 
-  const cssPath = options.cssPath || path.join(__dirname, 'base.css');
-  const css = options.css || fs.readFileSync(cssPath).toString();
+  var templatePath = options.templatePath || path.join(__dirname, 'template.html');
+  var template = options.template || fs.readFileSync(templatePath).toString();
 
-  const templatePath = options.templatePath || path.join(__dirname, 'template.html');
-  const template = options.template || fs.readFileSync(templatePath).toString();
+  var markdownPath = options.markdownPath || undefined;
+  var markdown = options.markdown || fs.readFileSync(markdownPath).toString();
 
-  const markdownPath = options.markdownPath || undefined;
-  const markdown = options.markdown || fs.readFileSync(markdownPath).toString();
+  var outputPath = options.outputPath;
 
-  const outputPath = options.outputPath;
+  var renderTemplate = _.template(template);
 
-  const renderTemplate = _.template(template);
+  var tableOfContent = marked(toc(markdown).content);
 
-  const tableOfContent = marked(toc(markdown).content);
-
-  const content = renderMarkdownString(markdown);
-  const context = {
+  var content = renderMarkdownString(markdown);
+  var context = {
     title: title,
     css: css,
     tableOfContent: tableOfContent,
     content: content
   };
 
-  const finalContent = renderTemplate(context);
+  var finalContent = renderTemplate(context);
   if (outputPath) {
     return fs.writeFileSync(outputPath, finalContent);
   } else {
