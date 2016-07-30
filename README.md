@@ -28,11 +28,20 @@ $ ./node_modules/.bin/litdoc input.md output.html
 Or you can use it directly in your application.
 
 ```js
-const litdoc = require('litdoc');
+var litdoc = require('litdoc');
 
-const documentationHtml = litdoc({
+// generate the HTML inline
+var documentationHtml = litdoc({
   markdown: '## Hello!\n\nThis is a sample doc.\n\n' +
-            '```js\nconst hello = "world"\n```'
+            '```js\nvar hello = "world"\n```'
+});
+
+// or, provide file paths to write directly
+var path = require('path');
+
+litdoc({
+  markdownPath: path.join(__dirname, '../README.md'),
+  outputPath: path.join(__dirname, '../index.html')
 });
 ```
 
@@ -70,7 +79,7 @@ Below is the reference for the only function `litdoc` exposes.
 > You _must_ provide either `markdown` or `markdownPath`.
 
 ```js
-const litdoc = require('litdoc');
+var litdoc = require('litdoc');
 
 litdoc({
   title: 'Documentation',

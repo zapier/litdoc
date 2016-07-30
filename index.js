@@ -10,23 +10,10 @@ const toc = require('markdown-toc');
 const cheerio = require('cheerio');
 const hljs = require('highlight.js');
 
-const makeTemplateRenderer = (t) => _.template(t);
+const rowTemplate = _.template(fs.readFileSync(path.join(__dirname, 'template-row.html')).toString());
+const row = (left, right) => rowTemplate({left: left || '', right: right || ''});
 
 const renderMarkdownString = (markdownString) => {
-  const rowTemplate = makeTemplateRenderer(`\
-  <div class="row">
-    <div class="row-height">
-      <div class="col-md-6 col-sm-12 col-height <% !left ? print('is-empty') : undefined %> docs-primary">
-        <%= left %>
-      </div>
-      <div class="col-md-6 col-sm-12 col-height <% !right ? print('is-empty') : undefined %> docs-code">
-        <%= right %>
-      </div>
-    </div>
-  </div>`);
-
-  const row = (left, right) => rowTemplate({left: left || '', right: right || ''});
-
   const intermediaryOutput = marked(markdownString, {
     highlight: (code, lang) => {
       if (!lang || lang === 'plain') { return code; }
@@ -95,7 +82,7 @@ const litdoc = (options) => {
 
   const outputPath = options.outputPath;
 
-  const renderTemplate = makeTemplateRenderer(template);
+  const renderTemplate = _.template(template);
 
   const tableOfContent = marked(toc(markdown).content);
 
