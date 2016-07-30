@@ -57,6 +57,7 @@ Below is the reference for the only function `litdoc` exposes.
 
 ### generate()
 
+* `title` - default `"Documentation"`
 * `css` - default `undefined`
 * `cssPath` - default `"base.css"` - litdoc provided
 * `template` - default `undefined`
