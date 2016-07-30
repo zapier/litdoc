@@ -29,6 +29,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "highlight.js": "^9.5.0",
+    "lodash": "^4.14.1",
     "markdown-toc": "^0.12.15",
     "marked": "^0.3.6"
   }
