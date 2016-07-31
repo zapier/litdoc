@@ -2,7 +2,7 @@
 
 `litdoc` is a simple 3 column documentation generator. The most common use case is a single `README.md`. This file itself is a demo:
 
-* [View orignal Markdown README.md.](https://github.com/zapier/litdoc)
+* [View original Markdown README.md.](https://github.com/zapier/litdoc)
 * [View generated HTML documentation.](https://zapier.github.io/litdoc/)
 
 
@@ -33,7 +33,7 @@ var litdoc = require('litdoc');
 // generate the HTML inline
 var documentationHtml = litdoc({
   markdown: '## Hello!\n\nThis is a sample doc.\n\n' +
-            '```js\nvar hello = "world"\n```'
+            '```js\nvar hello = 'world'\n```'
 });
 ```
 
@@ -72,13 +72,13 @@ Below is the reference for the only function `litdoc` exposes.
 
 ### litdoc()
 
-* `title` - default `"Documentation"`
+* `title` - default `'Documentation'`
 * `markdown` - default `undefined` - overrides `markdownPath`
 * `markdownPath` - default `undefined`
 * `css` - default `undefined` - overrides `cssPath`
-* `cssPath` - default `"base.css"` - litdoc provided
+* `cssPath` - default `'assets/base.css'` - litdoc provided
 * `template` - default `undefined` - overrides `templatePath`
-* `templatePath` - default `"template.html"` - litdoc provided
+* `templatePath` - default `'templates/index.html'` - litdoc provided
 * `outputPath` - default `undefined`
 
 > You _must_ provide either `markdown` or `markdownPath`.
@@ -91,9 +91,9 @@ litdoc({
   markdown: undefined,
   markdownPath: undefined,
   css: undefined,
-  cssPath: 'base.css', // litdoc provided
+  cssPath: 'assets/base.css', // litdoc provided
   template: undefined,
-  templatePath: 'template.html', // litdoc provided
+  templatePath: 'templates/index.html', // litdoc provided
   outputPath: undefined,
 });
 ```

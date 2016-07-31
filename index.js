@@ -10,7 +10,7 @@ var toc = require('markdown-toc');
 var cheerio = require('cheerio');
 var hljs = require('highlight.js');
 
-var rowTemplate = _.template(fs.readFileSync(path.join(__dirname, 'template-row.html')).toString());
+var rowTemplate = _.template(fs.readFileSync(path.join(__dirname, 'templates/row.html')).toString());
 var row = function row(left, right) {
   return rowTemplate({ left: left || '', right: right || '' });
 };
@@ -73,10 +73,10 @@ var renderMarkdownString = function renderMarkdownString(markdownString) {
 var litdoc = function litdoc(options) {
   var title = options.title || 'Documentation';
 
-  var cssPath = options.cssPath || path.join(__dirname, 'base.css');
+  var cssPath = options.cssPath || path.join(__dirname, 'assets/base.css');
   var css = options.css || fs.readFileSync(cssPath).toString();
 
-  var templatePath = options.templatePath || path.join(__dirname, 'template.html');
+  var templatePath = options.templatePath || path.join(__dirname, 'templates/index.html');
   var template = options.template || fs.readFileSync(templatePath).toString();
 
   var markdownPath = options.markdownPath || undefined;

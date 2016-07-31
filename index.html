@@ -229,7 +229,7 @@ blockquote {
   <div class="row-height">
     <div class="col-md-6 col-sm-12 col-height  docs-primary">
       <p><code>litdoc</code> is a simple 3 column documentation generator. The most common use case is a single <code>README.md</code>. This file itself is a demo:</p><ul>
-<li><a href="https://github.com/zapier/litdoc">View orignal Markdown README.md.</a></li>
+<li><a href="https://github.com/zapier/litdoc">View original Markdown README.md.</a></li>
 <li><a href="https://zapier.github.io/litdoc/">View generated HTML documentation.</a></li>
 </ul>
     </div>
@@ -295,7 +295,7 @@ blockquote {
 <span class="hljs-comment">// generate the HTML inline</span>
 <span class="hljs-keyword">var</span> documentationHtml = litdoc({
   markdown: <span class="hljs-string">&apos;## Hello!\n\nThis is a sample doc.\n\n&apos;</span> +
-            <span class="hljs-string">&apos;```js\nvar hello = &quot;world&quot;\n```&apos;</span>
+            <span class="hljs-string">&apos;```js\nvar hello = &apos;</span>world<span class="hljs-string">&apos;\n```&apos;</span>
 });
 </code></pre>
     </div>
@@ -377,13 +377,13 @@ litdoc({
   <div class="row-height">
     <div class="col-md-6 col-sm-12 col-height  docs-primary">
       <ul>
-<li><code>title</code> - default <code>&quot;Documentation&quot;</code></li>
+<li><code>title</code> - default <code>&apos;Documentation&apos;</code></li>
 <li><code>markdown</code> - default <code>undefined</code> - overrides <code>markdownPath</code></li>
 <li><code>markdownPath</code> - default <code>undefined</code></li>
 <li><code>css</code> - default <code>undefined</code> - overrides <code>cssPath</code></li>
-<li><code>cssPath</code> - default <code>&quot;base.css&quot;</code> - litdoc provided</li>
+<li><code>cssPath</code> - default <code>&apos;assets/base.css&apos;</code> - litdoc provided</li>
 <li><code>template</code> - default <code>undefined</code> - overrides <code>templatePath</code></li>
-<li><code>templatePath</code> - default <code>&quot;template.html&quot;</code> - litdoc provided</li>
+<li><code>templatePath</code> - default <code>&apos;templates/index.html&apos;</code> - litdoc provided</li>
 <li><code>outputPath</code> - default <code>undefined</code></li>
 </ul><blockquote>
 <p>You <em>must</em> provide either <code>markdown</code> or <code>markdownPath</code>.</p>
@@ -397,9 +397,9 @@ litdoc({
   markdown: <span class="hljs-literal">undefined</span>,
   markdownPath: <span class="hljs-literal">undefined</span>,
   css: <span class="hljs-literal">undefined</span>,
-  cssPath: <span class="hljs-string">&apos;base.css&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
+  cssPath: <span class="hljs-string">&apos;assets/base.css&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
   template: <span class="hljs-literal">undefined</span>,
-  templatePath: <span class="hljs-string">&apos;template.html&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
+  templatePath: <span class="hljs-string">&apos;templates/index.html&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
   outputPath: <span class="hljs-literal">undefined</span>,
 });
 </code></pre>
