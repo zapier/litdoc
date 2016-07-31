@@ -1,4 +1,3 @@
-
 body {
   font-family: 'Open Sans', Helvetica, arial, sans-serif;
   background-color: #fff;
@@ -7,6 +6,8 @@ body {
   font-weight: 400;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
   position: relative; }
 
 img {

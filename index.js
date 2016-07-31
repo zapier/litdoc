@@ -26,7 +26,10 @@ var renderMarkdownString = function renderMarkdownString(markdownString) {
   });
 
   var $ = cheerio.load('<div id="root">' + intermediaryOutput + '</div>');
-  var blocks = ['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'blockquote', 'table', 'hr', 'br', 'pre'];
+  var blocks = [
+    'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre',
+    'ul', 'ol', 'blockquote', 'table', 'hr', 'br'
+  ];
   var collectLeft = ['p', 'blockquote', 'ul', 'ol'];
   var flushRight = ['pre'];
 

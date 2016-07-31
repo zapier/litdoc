@@ -25,7 +25,7 @@ You can use it as a CLI tool.
 $ ./node_modules/.bin/litdoc input.md output.html
 ```
 
-Or you can use it directly in your application.
+Or you can use it directly in your application, generating the HTML inline.
 
 ```js
 var litdoc = require('litdoc');
@@ -35,10 +35,15 @@ var documentationHtml = litdoc({
   markdown: '## Hello!\n\nThis is a sample doc.\n\n' +
             '```js\nvar hello = "world"\n```'
 });
+```
 
-// or, provide file paths to write directly
+Or, you can optionally read/write to specific paths.
+
+```js
+var litdoc = require('litdoc');
 var path = require('path');
 
+// reads a markdown file and writes an HTML file
 litdoc({
   markdownPath: path.join(__dirname, '../README.md'),
   outputPath: path.join(__dirname, '../index.html')
@@ -68,12 +73,12 @@ Below is the reference for the only function `litdoc` exposes.
 ### litdoc()
 
 * `title` - default `"Documentation"`
-* `css` - default `undefined`
-* `cssPath` - default `"base.css"` - litdoc provided
-* `template` - default `undefined`
-* `templatePath` - default `"template.html"` - litdoc provided
-* `markdown` - default `undefined`
+* `markdown` - default `undefined` - overrides `markdownPath`
 * `markdownPath` - default `undefined`
+* `css` - default `undefined` - overrides `cssPath`
+* `cssPath` - default `"base.css"` - litdoc provided
+* `template` - default `undefined` - overrides `templatePath`
+* `templatePath` - default `"template.html"` - litdoc provided
 * `outputPath` - default `undefined`
 
 > You _must_ provide either `markdown` or `markdownPath`.
@@ -83,12 +88,12 @@ var litdoc = require('litdoc');
 
 litdoc({
   title: 'Documentation',
+  markdown: undefined,
+  markdownPath: undefined,
   css: undefined,
   cssPath: 'base.css', // litdoc provided
   template: undefined,
   templatePath: 'template.html', // litdoc provided
-  markdown: undefined,
-  markdownPath: undefined,
   outputPath: undefined,
 });
 ```
