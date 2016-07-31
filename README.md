@@ -78,6 +78,7 @@ Below is the reference for the only function `litdoc` exposes.
 * `css` - default `undefined` - overrides `cssPath`
 * `cssPath` - default `'assets/base.css'` - litdoc provided
 * `template` - default `undefined` - overrides `templatePath`
+ * this is neat
 * `templatePath` - default `'templates/index.html'` - litdoc provided
 * `outputPath` - default `undefined`
 

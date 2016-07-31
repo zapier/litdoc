@@ -15,6 +15,7 @@ var row = function row(left, right) {
   return rowTemplate({ left: left || '', right: right || '' });
 };
 
+// Renders Markdown into our "flavor" of row/bootstrap based HTML.
 var renderMarkdownString = function renderMarkdownString(markdownString) {
   var intermediaryOutput = marked(markdownString, {
     highlight: function highlight(code, lang) {
@@ -35,10 +36,10 @@ var renderMarkdownString = function renderMarkdownString(markdownString) {
 
   var stack = [];
   var finalOutput = '';
-  // walk all the "root" block level elements, throw anything that can
+  // Using cherio, we walk all the "root" block level elements, throw anything that can
   // be bunched into the left side of code onto the stack - then flush
-  // periodically when we run into code.
-  $('#root > ' + blocks.join(',')).each(function (i, el) {
+  // periodically when we run into code sections.
+  $(blocks.map(s => '#root > ' + s).join(',')).each(function (i, el) {
     var collect = collectLeft.indexOf(el.name) !== -1;
     var flush = flushRight.indexOf(el.name) !== -1;
     var inner = $(el).clone().wrap('<div>').parent().html();
@@ -71,6 +72,7 @@ var renderMarkdownString = function renderMarkdownString(markdownString) {
 };
 
 var litdoc = function litdoc(options) {
+  // Grabs all the options with defaults.
   var title = options.title || 'Documentation';
 
   var cssPath = options.cssPath || path.join(__dirname, 'assets/base.css');
@@ -84,7 +86,8 @@ var litdoc = function litdoc(options) {
 
   var outputPath = options.outputPath;
 
-  var renderTemplate = _.template(template);
+  // Do the actual work!
+  var renderHTMLTemplate = _.template(template);
 
   var tableOfContent = marked(toc(markdown).content);
 
@@ -95,8 +98,8 @@ var litdoc = function litdoc(options) {
     tableOfContent: tableOfContent,
     content: content
   };
+  var finalContent = renderHTMLTemplate(context);
 
-  var finalContent = renderTemplate(context);
   if (outputPath) {
     return fs.writeFileSync(outputPath, finalContent);
   } else {

@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/zapier/litdoc#readme",
   "dependencies": {
+    "acorn": "^2.7.0",
     "cheerio": "^0.20.0",
     "highlight.js": "^9.5.0",
     "lodash": "^4.14.1",
