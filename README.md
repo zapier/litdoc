@@ -33,7 +33,7 @@ var litdoc = require('litdoc');
 // generate the HTML inline
 var documentationHtml = litdoc({
   markdown: '## Hello!\n\nThis is a sample doc.\n\n' +
-            '```js\nvar hello = 'world'\n```'
+            '```js\nvar hello = "world"\n```'
 });
 ```
 
