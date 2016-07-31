@@ -29,6 +29,8 @@
   "dependencies": {
     "acorn": "^2.7.0",
     "cheerio": "^0.20.0",
+    "dedent": "^0.6.0",
+    "dedent-js": "^1.0.1",
     "highlight.js": "^9.5.0",
     "lodash": "^4.14.1",
     "markdown-toc": "^0.12.15",

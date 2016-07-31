@@ -79,7 +79,7 @@ Below is the reference for the only function `litdoc` exposes.
 * `cssPath` - default `'assets/base.css'` - litdoc provided
 * `template` - default `undefined` - overrides `templatePath`
  * this is neat
-* `templatePath` - default `'templates/index.html'` - litdoc provided
+* `templatePath` - default `'templates/index.jst'` - litdoc provided
 * `outputPath` - default `undefined`
 
 > You _must_ provide either `markdown` or `markdownPath`.
@@ -94,7 +94,7 @@ litdoc({
   css: undefined,
   cssPath: 'assets/base.css', // litdoc provided
   template: undefined,
-  templatePath: 'templates/index.html', // litdoc provided
+  templatePath: 'templates/index.jst', // litdoc provided
   outputPath: undefined,
 });
 ```

@@ -218,78 +218,78 @@ blockquote {
     <div class="docs-main container-fluid">
       <div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <h2 id="introduction">Introduction</h2>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p><code>litdoc</code> is a simple 3 column documentation generator. The most common use case is a single <code>README.md</code>. This file itself is a demo:</p><ul>
 <li><a href="https://github.com/zapier/litdoc">View original Markdown README.md.</a></li>
 <li><a href="http://litdoc.org/">View generated HTML documentation.</a></li>
 </ul>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <h2 id="installation-usage">Installation &amp; Usage</h2>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>There are two ways to use <code>litdoc</code>, locally and globally.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <h3 id="local-installation-usage">Local Installation &amp; Usage</h3>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>If you only need <code>litdoc</code> for your current project, we recommend a local installation via <code>npm</code>.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-bash">$ npm install litdoc --save-dev
 </code></pre>
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>You can use it as a CLI tool.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-bash">$ ./node_modules/.bin/litdoc input.md output.html
 </code></pre>
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>Or you can use it directly in your application, generating the HTML inline.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-js"><span class="hljs-keyword">var</span> litdoc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
 
 <span class="hljs-comment">// generate the HTML inline</span>
@@ -302,10 +302,10 @@ blockquote {
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>Or, you can optionally read/write to specific paths.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-js"><span class="hljs-keyword">var</span> litdoc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
 <span class="hljs-keyword">var</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;path&apos;</span>);
 
@@ -319,63 +319,63 @@ litdoc({
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <h3 id="global-installation-usage">Global Installation &amp; Usage</h3>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>If you&apos;d prefer to make <code>litdoc</code> available across all your projects, you can install it locally with <code>npm</code>.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-bash">$ npm install -g litdoc
 </code></pre>
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>You can use it as a CLI tool from anyplace on your machine.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-bash">$ litdoc input.md output.html
 </code></pre>
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <h2 id="reference">Reference</h2>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <p>Below is the reference for the only function <code>litdoc</code> exposes.</p>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <h3 id="litdoc-">litdoc()</h3>
     </div>
-    <div class="col-md-6 col-sm-12 col-height is-empty docs-code">
+    <div class="col-md-7 col-sm-12 col-height is-empty docs-code">
       
     </div>
   </div>
 </div><div class="row">
   <div class="row-height">
-    <div class="col-md-6 col-sm-12 col-height  docs-primary">
+    <div class="col-md-5 col-sm-12 col-height  docs-primary">
       <ul>
 <li><code>title</code> - default <code>&apos;Documentation&apos;</code></li>
 <li><code>markdown</code> - default <code>undefined</code> - overrides <code>markdownPath</code></li>
@@ -386,13 +386,13 @@ litdoc({
 <li>this is neat</li>
 </ul>
 </li>
-<li><code>templatePath</code> - default <code>&apos;templates/index.html&apos;</code> - litdoc provided</li>
+<li><code>templatePath</code> - default <code>&apos;templates/index.jst&apos;</code> - litdoc provided</li>
 <li><code>outputPath</code> - default <code>undefined</code></li>
 </ul><blockquote>
 <p>You <em>must</em> provide either <code>markdown</code> or <code>markdownPath</code>.</p>
 </blockquote>
     </div>
-    <div class="col-md-6 col-sm-12 col-height  docs-code">
+    <div class="col-md-7 col-sm-12 col-height  docs-code">
       <pre><code class="lang-js"><span class="hljs-keyword">var</span> litdoc = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;litdoc&apos;</span>);
 
 litdoc({
@@ -402,7 +402,7 @@ litdoc({
   css: <span class="hljs-literal">undefined</span>,
   cssPath: <span class="hljs-string">&apos;assets/base.css&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
   template: <span class="hljs-literal">undefined</span>,
-  templatePath: <span class="hljs-string">&apos;templates/index.html&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
+  templatePath: <span class="hljs-string">&apos;templates/index.jst&apos;</span>, <span class="hljs-comment">// litdoc provided</span>
   outputPath: <span class="hljs-literal">undefined</span>,
 });
 </code></pre>
