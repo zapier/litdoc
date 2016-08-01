@@ -2,7 +2,7 @@
 
 `litdoc` is a simple 3 column documentation generator. The most common use case is a single `README.md`. This file itself is a demo:
 
-* [View original Markdown README.md.](https://github.com/zapier/litdoc)
+* [View original Markdown README.md.](https://github.com/zapier/litdoc/blob/gh-pages/README.md)
 * [View generated HTML documentation.](http://litdoc.org/)
 
 
