@@ -1,6 +1,6 @@
 {
   "name": "litdoc",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "A simple Markdown-based 3-column documentation builder.",
   "main": "index.js",
   "scripts": {
