@@ -131,7 +131,9 @@ blockquote {
   height: 100%;
   width: 230px;
   position: fixed;
-  padding: 40px 20px; }
+  padding: 40px 20px;
+  overflow-y: scroll;
+  overflow-x: hidden; }
   .docs-toc ul {
     list-style-type: none;
     margin: 0; 
@@ -157,6 +159,9 @@ blockquote {
       padding: 10px;
       line-height: 1.7em; }
 
+a code {
+  color: #499DF3;
+  background-color: #f2f4f9; }
 
 /* targets bootstraps md width */
 
