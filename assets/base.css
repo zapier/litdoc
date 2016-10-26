@@ -135,11 +135,8 @@ blockquote {
   overflow-y: scroll;
   overflow-x: hidden; }
   .docs-toc ul {
-    list-style-type: none;
     margin: 0; 
-    padding: 0; }
-    .docs-toc ul ul {
-      padding-left: 10px; }
+    padding: 0 0 0 10; }
 
 .generated-by {
   font-size: 12px;
