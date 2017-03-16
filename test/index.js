@@ -16,4 +16,10 @@ describe('litdoc', () => {
     var html = litdoc({markdown: markdown})
     html.should.containEql('<h1 id="contact-endpoint-deprecated">');
   });
+
+  it('should create valid anchors for headings that contain slashes', () => {
+    var markdown = '# Contact/Lead Endpoint';
+    var html = litdoc({markdown: markdown})
+    html.should.containEql('<h1 id="contactlead-endpoint">');
+  });
 });

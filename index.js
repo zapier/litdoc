@@ -102,15 +102,24 @@ var javascriptToMarkdown = function(javascriptString) {
  The TOC plugin converts headings from raw strings to []() format, which can
  lead to differences in how marked renders the TOC and the main body.
 */
-var renderer = new marked.Renderer();
-var trailingDashRegExp = new RegExp('id=".*?[-]"');
-var trailingDashRemover = function(match, offset, string) {
-  return match.slice(0, -2) + match.slice(-1);
+var idRegExp = new RegExp('id=".*?"');
+var hrefRegExp = new RegExp('href="#(.*?)"');
+var idReplacer = function(newId) {
+  return function(match, offset, string) {
+    return 'id="' + newId + '"';
+  }
 };
 
+var renderer = new marked.Renderer();
 renderer.heading = function (text, level) {
   var renderedHeading = marked('#'.repeat(level) + ' ' + text);
-  return renderedHeading.replace(trailingDashRegExp, trailingDashRemover);
+
+  var tocRendering = marked(toc('# ' + text).content);
+  var matchInfo = tocRendering.match(hrefRegExp);
+  if (matchInfo) {
+    return renderedHeading.replace(idRegExp, idReplacer(matchInfo[1]));
+  }
+  return renderedHeading;
 };
 
 /*
