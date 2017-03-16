@@ -114,7 +114,8 @@ var renderer = new marked.Renderer();
 renderer.heading = function (text, level) {
   var renderedHeading = marked('#'.repeat(level) + ' ' + text);
 
-  var tocRendering = marked(toc('# ' + text).content);
+  var strippedText = cheerio.load(text).text();
+  var tocRendering = marked(toc('# ' + strippedText).content);
   var matchInfo = tocRendering.match(hrefRegExp);
   if (matchInfo) {
     return renderedHeading.replace(idRegExp, idReplacer(matchInfo[1]));

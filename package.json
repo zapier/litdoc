@@ -28,7 +28,7 @@
   "homepage": "https://github.com/zapier/litdoc#readme",
   "dependencies": {
     "acorn": "^2.7.0",
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.22.0",
     "dedent": "^0.6.0",
     "dedent-js": "^1.0.1",
     "highlight.js": "^9.5.0",

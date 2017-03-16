@@ -22,4 +22,14 @@ describe('litdoc', () => {
     var html = litdoc({markdown: markdown})
     html.should.containEql('<h1 id="contactlead-endpoint">');
   });
+
+  it('should create valid anchors for headings that contain stylization', () => {
+    var markdown = '# Your *index.js*';
+    var html = litdoc({markdown: markdown})
+    html.should.containEql('<h1 id="your-indexjs');
+
+    var markdown = '# Your `index.js`';
+    var html = litdoc({markdown: markdown})
+    html.should.containEql('<h1 id="your-indexjs');
+  });
 });
