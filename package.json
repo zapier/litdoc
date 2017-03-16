@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docs": "node bin/docs.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha -t 2000 --recursive test"
   },
   "repository": {
     "type": "git",
@@ -35,5 +35,9 @@
     "lodash": "^4.13.1",
     "markdown-toc": "^0.12.15",
     "marked": "^0.3.6"
+  },
+  "devDependencies": {
+    "mocha": "3.0.2",
+    "should": "11.1.0"
   }
 }
