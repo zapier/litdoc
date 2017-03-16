@@ -176,10 +176,17 @@ var litdoc = function litdoc(options) {
   var templatePath = options.templatePath || path.join(__dirname, 'templates/index.jst');
   var template = options.template || fs.readFileSync(templatePath).toString();
 
+  var markdown;
   var markdownPath = options.markdownPath || undefined;
-  var markdown = options.markdown || fs.readFileSync(markdownPath).toString();
-  if (_.endsWith(markdownPath, '.js')) {
-    markdown = javascriptToMarkdown(markdown);
+  if (markdownPath) {
+    markdown = fs.readFileSync(markdownPath).toString();
+    if (_.endsWith(markdownPath, '.js')) {
+      markdown = javascriptToMarkdown(markdown);
+    }
+  } else if (options.markdown) {
+    markdown = options.markdown;
+  } else {
+    throw new Error('Must specify `markdown` or `markdownPath` option');
   }
 
   var outputPath = options.outputPath;
