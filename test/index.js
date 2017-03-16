@@ -10,4 +10,10 @@ describe('litdoc', () => {
     html.should.containEql('<p>Hi there. <a href="http://example.com">Click Me</a>.</p>');
     html.should.containEql('<p>Second paragraph.</p>');
   });
+
+  it('should create valid anchors for headings that contain parentheses', () => {
+    var markdown = '# Contact Endpoint (deprecated)';
+    var html = litdoc({markdown: markdown})
+    html.should.containEql('<h1 id="contact-endpoint-deprecated">');
+  });
 });

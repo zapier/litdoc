@@ -97,6 +97,23 @@ var javascriptToMarkdown = function(javascriptString) {
 };
 
 /*
+ ## Custom Rendering
+
+ The TOC plugin converts headings from raw strings to []() format, which can
+ lead to differences in how marked renders the TOC and the main body.
+*/
+var renderer = new marked.Renderer();
+var trailingDashRegExp = new RegExp('id=".*?[-]"');
+var trailingDashRemover = function(match, offset, string) {
+  return match.slice(0, -2) + match.slice(-1);
+};
+
+renderer.heading = function (text, level) {
+  var renderedHeading = marked('#'.repeat(level) + ' ' + text);
+  return renderedHeading.replace(trailingDashRegExp, trailingDashRemover);
+};
+
+/*
 ## Markdown To HTML
 
 Renders Markdown into our "flavor" of row/bootstrap based HTML, which
@@ -109,7 +126,8 @@ var markdownToHTML = function(markdownString) {
         return code;
       }
       return hljs.highlight(lang, code).value;
-    }
+    },
+    renderer: renderer
   });
 
   var $ = cheerio.load('<div id="root">' + intermediaryOutput + '</div>');
@@ -158,8 +176,7 @@ var markdownToHTML = function(markdownString) {
   }
 
   return finalOutput;
-};
-
+}
 
 /*
 ## litdoc Export
