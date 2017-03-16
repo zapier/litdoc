@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docs": "node bin/docs.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha -t 2000 --recursive test"
   },
   "repository": {
     "type": "git",
@@ -28,12 +28,16 @@
   "homepage": "https://github.com/zapier/litdoc#readme",
   "dependencies": {
     "acorn": "^2.7.0",
-    "cheerio": "^0.20.0",
+    "cheerio": "^0.22.0",
     "dedent": "^0.6.0",
     "dedent-js": "^1.0.1",
     "highlight.js": "^9.5.0",
     "lodash": "^4.13.1",
     "markdown-toc": "^0.12.15",
     "marked": "^0.3.6"
+  },
+  "devDependencies": {
+    "mocha": "3.0.2",
+    "should": "11.1.0"
   }
 }

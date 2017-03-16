@@ -97,6 +97,33 @@ var javascriptToMarkdown = function(javascriptString) {
 };
 
 /*
+ ## Custom Rendering
+
+ The TOC plugin converts headings from raw strings to []() format, which can
+ lead to differences in how marked renders the TOC and the main body.
+*/
+var idRegExp = new RegExp('id=".*?"');
+var hrefRegExp = new RegExp('href="#(.*?)"');
+var idReplacer = function(newId) {
+  return function(match, offset, string) {
+    return 'id="' + newId + '"';
+  }
+};
+
+var renderer = new marked.Renderer();
+renderer.heading = function (text, level) {
+  var renderedHeading = marked('#'.repeat(level) + ' ' + text);
+
+  var strippedText = cheerio.load(text).text();
+  var tocRendering = marked(toc('# ' + strippedText).content);
+  var matchInfo = tocRendering.match(hrefRegExp);
+  if (matchInfo) {
+    return renderedHeading.replace(idRegExp, idReplacer(matchInfo[1]));
+  }
+  return renderedHeading;
+};
+
+/*
 ## Markdown To HTML
 
 Renders Markdown into our "flavor" of row/bootstrap based HTML, which
@@ -109,7 +136,8 @@ var markdownToHTML = function(markdownString) {
         return code;
       }
       return hljs.highlight(lang, code).value;
-    }
+    },
+    renderer: renderer
   });
 
   var $ = cheerio.load('<div id="root">' + intermediaryOutput + '</div>');
@@ -158,8 +186,7 @@ var markdownToHTML = function(markdownString) {
   }
 
   return finalOutput;
-};
-
+}
 
 /*
 ## litdoc Export
@@ -176,10 +203,17 @@ var litdoc = function litdoc(options) {
   var templatePath = options.templatePath || path.join(__dirname, 'templates/index.jst');
   var template = options.template || fs.readFileSync(templatePath).toString();
 
+  var markdown;
   var markdownPath = options.markdownPath || undefined;
-  var markdown = options.markdown || fs.readFileSync(markdownPath).toString();
-  if (_.endsWith(markdownPath, '.js')) {
-    markdown = javascriptToMarkdown(markdown);
+  if (markdownPath) {
+    markdown = fs.readFileSync(markdownPath).toString();
+    if (_.endsWith(markdownPath, '.js')) {
+      markdown = javascriptToMarkdown(markdown);
+    }
+  } else if (options.markdown) {
+    markdown = options.markdown;
+  } else {
+    throw new Error('Must specify `markdown` or `markdownPath` option');
   }
 
   var outputPath = options.outputPath;
